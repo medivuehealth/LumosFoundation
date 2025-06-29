@@ -10,38 +10,41 @@
             theme: {
                 extend: {
                     colors: {
-                        'ibd': {
-                            100: '#f0f9ff',
-                            200: '#e0f2fe',
-                            300: '#bae6fd',
-                            400: '#7dd3fc',
-                            500: '#38bdf8',
-                            600: '#0ea5e9',
-                            700: '#0284c7',
-                            800: '#0369a1',
-                            900: '#0c4a6e'
+                        'warm': {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12'
                         },
-                        'healing': {
-                            100: '#f0fdf4',
-                            200: '#dcfce7',
-                            300: '#bbf7d0',
-                            400: '#86efac',
-                            500: '#4ade80',
-                            600: '#22c55e',
-                            700: '#16a34a',
-                            800: '#15803d',
-                            900: '#166534'
+                        'soft-blue': {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a'
                         },
-                        'comfort': {
-                            100: '#fef7ff',
-                            200: '#fdeeff',
-                            300: '#fcdcff',
-                            400: '#fbb8ff',
-                            500: '#f472b6',
-                            600: '#ec4899',
-                            700: '#db2777',
-                            800: '#be185d',
-                            900: '#9d174d'
+                        'warm-gray': {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917'
                         }
                     },
                     fontFamily: {
@@ -49,7 +52,7 @@
                         'sans': ['Inter', 'system-ui', 'sans-serif']
                     },
                     boxShadow: {
-                        'glow': '0 0 20px rgba(56, 189, 248, 0.3)'
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
                     }
                 }
             }
@@ -57,40 +60,43 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #f0fdf4 50%, #fef7ff 75%, #f0f9ff 100%);
+        .warm-gradient {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 25%, #eff6ff 50%, #fefce8 75%, #fef9c3 100%);
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #ec4899 100%);
+        .hero-warm {
+            background: linear-gradient(135deg, #eab308 0%, #facc15 50%, #3b82f6 100%);
         }
         .card-hover {
             transition: all 0.3s ease;
         }
         .card-hover:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .warm-shadow {
+            box-shadow: 0 4px 6px -1px rgba(234, 179, 8, 0.1), 0 2px 4px -1px rgba(234, 179, 8, 0.06);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans text-warm-gray-800 bg-warm-50">
     <!-- Header -->
-    <header class="bg-white/90 shadow-sm sticky top-0 z-50 backdrop-blur-sm">
+    <header class="bg-white/95 shadow-soft sticky top-0 z-50 backdrop-blur-sm border-b border-warm-200">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
             <div class="flex items-center space-x-3">
-                <div class="h-10 w-10 bg-gradient-to-br from-ibd-500 to-healing-500 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-xl">L</span>
+                <div class="h-12 w-12 bg-gradient-to-br from-warm-500 to-soft-blue-500 rounded-xl flex items-center justify-center warm-shadow">
+                    <span class="text-white font-bold text-2xl">L</span>
                 </div>
-                <span class="text-3xl font-display font-bold text-ibd-700 tracking-tight">Lumos Foundation</span>
+                <span class="text-3xl font-display font-bold text-warm-700 tracking-tight">Lumos Foundation</span>
             </div>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#mission" class="text-gray-600 hover:text-ibd-600 transition-colors">Mission</a>
-                <a href="#events" class="text-gray-600 hover:text-ibd-600 transition-colors">Events</a>
-                <a href="#blog" class="text-gray-600 hover:text-ibd-600 transition-colors">Blog</a>
-                <a href="#volunteer" class="text-gray-600 hover:text-ibd-600 transition-colors">Volunteer</a>
-                <a href="#contact" class="text-gray-600 hover:text-ibd-600 transition-colors">Contact</a>
-                <a href="#donate" class="bg-ibd-600 text-white px-6 py-2 rounded-full hover:bg-ibd-700 transition-colors">Donate</a>
+                <a href="#mission" class="text-warm-gray-600 hover:text-warm-600 transition-colors font-medium">Mission</a>
+                <a href="#events" class="text-warm-gray-600 hover:text-warm-600 transition-colors font-medium">Events</a>
+                <a href="#blog" class="text-warm-gray-600 hover:text-warm-600 transition-colors font-medium">Blog</a>
+                <a href="#volunteer" class="text-warm-gray-600 hover:text-warm-600 transition-colors font-medium">Volunteer</a>
+                <a href="#contact" class="text-warm-gray-600 hover:text-warm-600 transition-colors font-medium">Contact</a>
+                <a href="#donate" class="bg-warm-500 text-white px-6 py-3 rounded-full hover:bg-warm-600 transition-colors font-semibold warm-shadow">Donate</a>
             </nav>
-            <button class="md:hidden text-gray-600">
+            <button class="md:hidden text-warm-gray-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -99,19 +105,19 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20">
+    <section class="hero-warm text-white py-24">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
-                Bringing Light to <span class="text-yellow-300">Little Warriors</span>
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-8">
+                Bringing Light to <span class="text-warm-100">Little Warriors</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            <p class="text-xl md:text-2xl mb-10 max-w-4xl mx-auto opacity-95 leading-relaxed">
                 Supporting children and families affected by Pediatric IBD and Oncology through hope, healing, and community.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#donate" class="bg-white text-ibd-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors">
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#donate" class="bg-white text-warm-600 px-10 py-4 rounded-full text-lg font-semibold hover:bg-warm-50 transition-colors warm-shadow">
                     Make a Donation
                 </a>
-                <a href="#volunteer" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-ibd-600 transition-colors">
+                <a href="#volunteer" class="border-2 border-white text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-warm-600 transition-colors">
                     Join Our Mission
                 </a>
             </div>
@@ -119,117 +125,117 @@
     </section>
 
     <!-- Mission Section -->
-    <section id="mission" class="py-20 gradient-bg">
+    <section id="mission" class="py-24 warm-gradient">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Our Mission</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-warm-800 mb-8">Our Mission</h2>
+                <p class="text-xl text-warm-gray-600 max-w-4xl mx-auto leading-relaxed">
                     Lumos Foundation is dedicated to illuminating the path for families navigating the challenges of pediatric IBD and oncology.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
-                    <div class="text-4xl mb-4">🌟</div>
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-4">Awareness</h3>
-                    <p class="text-gray-600">Spreading knowledge about pediatric IBD and oncology to create understanding and support networks.</p>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white rounded-3xl p-10 shadow-soft card-hover warm-shadow">
+                    <div class="text-5xl mb-6">🌟</div>
+                    <h3 class="text-2xl font-bold text-warm-700 mb-6">Awareness</h3>
+                    <p class="text-warm-gray-600 leading-relaxed">Spreading knowledge about pediatric IBD and oncology to create understanding and support networks.</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
-                    <div class="text-4xl mb-4">🤝</div>
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-4">Support</h3>
-                    <p class="text-gray-600">Providing direct assistance to families through grants, counseling, and community programs.</p>
+                <div class="bg-white rounded-3xl p-10 shadow-soft card-hover warm-shadow">
+                    <div class="text-5xl mb-6">🤝</div>
+                    <h3 class="text-2xl font-bold text-warm-700 mb-6">Support</h3>
+                    <p class="text-warm-gray-600 leading-relaxed">Providing direct assistance to families through grants, counseling, and community programs.</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
-                    <div class="text-4xl mb-4">💫</div>
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-4">Hope</h3>
-                    <p class="text-gray-600">Funding research and innovative programs to improve outcomes and quality of life.</p>
+                <div class="bg-white rounded-3xl p-10 shadow-soft card-hover warm-shadow">
+                    <div class="text-5xl mb-6">💫</div>
+                    <h3 class="text-2xl font-bold text-warm-700 mb-6">Hope</h3>
+                    <p class="text-warm-gray-600 leading-relaxed">Funding research and innovative programs to improve outcomes and quality of life.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="py-20 bg-white">
+    <section id="events" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Upcoming Events</h2>
-                <p class="text-xl text-gray-600">Join us in making a difference</p>
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-warm-800 mb-8">Upcoming Events</h2>
+                <p class="text-xl text-warm-gray-600">Join us in making a difference</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br from-ibd-100 to-healing-100 rounded-2xl p-6 card-hover">
-                    <div class="text-sm text-ibd-600 font-semibold mb-2">July 15, 2024</div>
-                    <h3 class="text-xl font-bold text-ibd-800 mb-3">Family Support Workshop</h3>
-                    <p class="text-gray-600 mb-4">Join us for a day of connection, education, and support for families affected by pediatric IBD.</p>
-                    <a href="#" class="text-ibd-600 font-semibold hover:text-ibd-700">Learn More →</a>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-gradient-to-br from-warm-50 to-soft-blue-50 rounded-3xl p-8 card-hover warm-shadow">
+                    <div class="text-sm text-warm-600 font-semibold mb-3">July 15, 2024</div>
+                    <h3 class="text-xl font-bold text-warm-800 mb-4">Family Support Workshop</h3>
+                    <p class="text-warm-gray-600 mb-6 leading-relaxed">Join us for a day of connection, education, and support for families affected by pediatric IBD.</p>
+                    <a href="#" class="text-warm-600 font-semibold hover:text-warm-700 transition-colors">Learn More →</a>
                 </div>
-                <div class="bg-gradient-to-br from-healing-100 to-comfort-100 rounded-2xl p-6 card-hover">
-                    <div class="text-sm text-healing-600 font-semibold mb-2">August 3, 2024</div>
-                    <h3 class="text-xl font-bold text-healing-800 mb-3">Hope & Healing Gala</h3>
-                    <p class="text-gray-600 mb-4">Our annual fundraising gala celebrating the strength and resilience of our community.</p>
-                    <a href="#" class="text-healing-600 font-semibold hover:text-healing-700">Learn More →</a>
+                <div class="bg-gradient-to-br from-soft-blue-50 to-warm-50 rounded-3xl p-8 card-hover warm-shadow">
+                    <div class="text-sm text-soft-blue-600 font-semibold mb-3">August 3, 2024</div>
+                    <h3 class="text-xl font-bold text-soft-blue-800 mb-4">Hope & Healing Gala</h3>
+                    <p class="text-warm-gray-600 mb-6 leading-relaxed">Our annual fundraising gala celebrating the strength and resilience of our community.</p>
+                    <a href="#" class="text-soft-blue-600 font-semibold hover:text-soft-blue-700 transition-colors">Learn More →</a>
                 </div>
-                <div class="bg-gradient-to-br from-comfort-100 to-ibd-100 rounded-2xl p-6 card-hover">
-                    <div class="text-sm text-comfort-600 font-semibold mb-2">September 10, 2024</div>
-                    <h3 class="text-xl font-bold text-comfort-800 mb-3">Research Symposium</h3>
-                    <p class="text-gray-600 mb-4">Learn about the latest advances in pediatric IBD and oncology research.</p>
-                    <a href="#" class="text-comfort-600 font-semibold hover:text-comfort-700">Learn More →</a>
+                <div class="bg-gradient-to-br from-warm-50 to-soft-blue-50 rounded-3xl p-8 card-hover warm-shadow">
+                    <div class="text-sm text-warm-600 font-semibold mb-3">September 10, 2024</div>
+                    <h3 class="text-xl font-bold text-warm-800 mb-4">Research Symposium</h3>
+                    <p class="text-warm-gray-600 mb-6 leading-relaxed">Learn about the latest advances in pediatric IBD and oncology research.</p>
+                    <a href="#" class="text-warm-600 font-semibold hover:text-warm-700 transition-colors">Learn More →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="py-20 gradient-bg">
+    <section id="blog" class="py-24 warm-gradient">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Latest Stories</h2>
-                <p class="text-xl text-gray-600">Stories of hope, resilience, and community</p>
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-warm-800 mb-8">Latest Stories</h2>
+                <p class="text-xl text-warm-gray-600">Stories of hope, resilience, and community</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-                    <div class="h-48 bg-gradient-to-br from-ibd-400 to-ibd-600 flex items-center justify-center">
+            <div class="grid md:grid-cols-3 gap-10">
+                <article class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover warm-shadow">
+                    <div class="h-48 bg-gradient-to-br from-warm-400 to-warm-600 flex items-center justify-center">
                         <span class="text-6xl">📚</span>
                     </div>
-                    <div class="p-6">
-                        <div class="text-sm text-ibd-600 mb-2">Education • 5 min read</div>
-                        <h3 class="text-xl font-bold text-ibd-800 mb-3">Understanding Pediatric IBD: A Parent's Guide</h3>
-                        <p class="text-gray-600 mb-4">Essential information for parents navigating their child's IBD diagnosis and treatment journey.</p>
+                    <div class="p-8">
+                        <div class="text-sm text-warm-600 mb-3">Education • 5 min read</div>
+                        <h3 class="text-xl font-bold text-warm-800 mb-4">Understanding Pediatric IBD: A Parent's Guide</h3>
+                        <p class="text-warm-gray-600 mb-6 leading-relaxed">Essential information for parents navigating their child's IBD diagnosis and treatment journey.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">June 28, 2024</span>
-                            <a href="#" class="text-ibd-600 font-semibold hover:text-ibd-700">Read More →</a>
+                            <span class="text-sm text-warm-gray-500">June 28, 2024</span>
+                            <a href="#" class="text-warm-600 font-semibold hover:text-warm-700 transition-colors">Read More →</a>
                         </div>
                     </div>
                 </article>
-                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-                    <div class="h-48 bg-gradient-to-br from-healing-400 to-healing-600 flex items-center justify-center">
+                <article class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover warm-shadow">
+                    <div class="h-48 bg-gradient-to-br from-soft-blue-400 to-soft-blue-600 flex items-center justify-center">
                         <span class="text-6xl">✨</span>
                     </div>
-                    <div class="p-6">
-                        <div class="text-sm text-healing-600 mb-2">Success Story • 3 min read</div>
-                        <h3 class="text-xl font-bold text-healing-800 mb-3">Emma's Journey: From Diagnosis to Advocacy</h3>
-                        <p class="text-gray-600 mb-4">How one family turned their challenges into opportunities to help others in similar situations.</p>
+                    <div class="p-8">
+                        <div class="text-sm text-soft-blue-600 mb-3">Success Story • 3 min read</div>
+                        <h3 class="text-xl font-bold text-soft-blue-800 mb-4">Emma's Journey: From Diagnosis to Advocacy</h3>
+                        <p class="text-warm-gray-600 mb-6 leading-relaxed">How one family turned their challenges into opportunities to help others in similar situations.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">June 25, 2024</span>
-                            <a href="#" class="text-healing-600 font-semibold hover:text-healing-700">Read More →</a>
+                            <span class="text-sm text-warm-gray-500">June 25, 2024</span>
+                            <a href="#" class="text-soft-blue-600 font-semibold hover:text-soft-blue-700 transition-colors">Read More →</a>
                         </div>
                     </div>
                 </article>
-                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-                    <div class="h-48 bg-gradient-to-br from-comfort-400 to-comfort-600 flex items-center justify-center">
+                <article class="bg-white rounded-3xl overflow-hidden shadow-soft card-hover warm-shadow">
+                    <div class="h-48 bg-gradient-to-br from-warm-400 to-soft-blue-500 flex items-center justify-center">
                         <span class="text-6xl">🔬</span>
                     </div>
-                    <div class="p-6">
-                        <div class="text-sm text-comfort-600 mb-2">Research • 7 min read</div>
-                        <h3 class="text-xl font-bold text-comfort-800 mb-3">Breakthroughs in Pediatric Oncology Treatment</h3>
-                        <p class="text-gray-600 mb-4">Latest developments in treatment options and their impact on patient outcomes.</p>
+                    <div class="p-8">
+                        <div class="text-sm text-warm-600 mb-3">Research • 7 min read</div>
+                        <h3 class="text-xl font-bold text-warm-800 mb-4">Breakthroughs in Pediatric Oncology Treatment</h3>
+                        <p class="text-warm-gray-600 mb-6 leading-relaxed">Latest developments in treatment options and their impact on patient outcomes.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">June 22, 2024</span>
-                            <a href="#" class="text-comfort-600 font-semibold hover:text-comfort-700">Read More →</a>
+                            <span class="text-sm text-warm-gray-500">June 22, 2024</span>
+                            <a href="#" class="text-warm-600 font-semibold hover:text-warm-700 transition-colors">Read More →</a>
                         </div>
                     </div>
                 </article>
             </div>
-            <div class="text-center mt-12">
-                <a href="#" class="bg-ibd-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-ibd-700 transition-colors">
+            <div class="text-center mt-16">
+                <a href="#" class="bg-warm-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-warm-600 transition-colors warm-shadow">
                     Read More Articles
                 </a>
             </div>
@@ -237,72 +243,72 @@
     </section>
 
     <!-- Volunteer Section -->
-    <section id="volunteer" class="py-20 bg-white">
+    <section id="volunteer" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Join Our Volunteer Team</h2>
-                <p class="text-xl text-gray-600">Make a difference in the lives of children and families</p>
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-warm-800 mb-8">Join Our Volunteer Team</h2>
+                <p class="text-xl text-warm-gray-600">Make a difference in the lives of children and families</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Volunteer Opportunities</h3>
-                    <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-warm-700 mb-8">Volunteer Opportunities</h3>
+                    <div class="space-y-6">
                         <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-ibd-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span class="text-ibd-600 font-bold">1</span>
+                            <div class="w-10 h-10 bg-warm-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-warm-600 font-bold">1</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-ibd-800">Event Coordination</h4>
-                                <p class="text-gray-600">Help organize and support our community events and fundraisers.</p>
+                                <h4 class="font-semibold text-warm-800 mb-2">Event Coordination</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">Help organize and support our community events and fundraisers.</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-healing-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span class="text-healing-600 font-bold">2</span>
+                            <div class="w-10 h-10 bg-soft-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-soft-blue-600 font-bold">2</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-healing-800">Family Support Hotline</h4>
-                                <p class="text-gray-600">Provide emotional support and resources to families in need.</p>
+                                <h4 class="font-semibold text-soft-blue-800 mb-2">Family Support Hotline</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">Provide emotional support and resources to families in need.</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-comfort-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span class="text-comfort-600 font-bold">3</span>
+                            <div class="w-10 h-10 bg-warm-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-warm-600 font-bold">3</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-comfort-800">Educational Content</h4>
-                                <p class="text-gray-600">Create and share educational materials for our community.</p>
+                                <h4 class="font-semibold text-warm-800 mb-2">Educational Content</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">Create and share educational materials for our community.</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-ibd-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span class="text-ibd-600 font-bold">4</span>
+                            <div class="w-10 h-10 bg-soft-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-soft-blue-600 font-bold">4</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-ibd-800">Peer Mentoring</h4>
-                                <p class="text-gray-600">Share your experience and support families going through similar challenges.</p>
+                                <h4 class="font-semibold text-soft-blue-800 mb-2">Peer Mentoring</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">Share your experience and support families going through similar challenges.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gradient-to-br from-ibd-50 to-healing-50 rounded-2xl p-8">
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Volunteer Signup</h3>
-                    <form class="space-y-4">
+                <div class="bg-gradient-to-br from-warm-50 to-soft-blue-50 rounded-3xl p-10 warm-shadow">
+                    <h3 class="text-2xl font-bold text-warm-700 mb-8">Volunteer Signup</h3>
+                    <form class="space-y-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent bg-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent bg-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Phone</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent bg-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Areas of Interest</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Areas of Interest</label>
+                            <select class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent bg-white">
                                 <option>Select an area</option>
                                 <option>Event Coordination</option>
                                 <option>Family Support Hotline</option>
@@ -313,10 +319,10 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent" placeholder="Tell us about your interest in volunteering..."></textarea>
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent bg-white" placeholder="Tell us about your interest in volunteering..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-ibd-600 text-white py-3 rounded-lg font-semibold hover:bg-ibd-700 transition-colors">
+                        <button type="submit" class="w-full bg-warm-500 text-white py-4 rounded-xl font-semibold hover:bg-warm-600 transition-colors warm-shadow">
                             Submit Application
                         </button>
                     </form>
@@ -326,44 +332,44 @@
     </section>
 
     <!-- Donation Section -->
-    <section id="donate" class="py-20 hero-gradient text-white">
+    <section id="donate" class="py-24 hero-warm text-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Make a Difference Today</h2>
-            <p class="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-8">Make a Difference Today</h2>
+            <p class="text-xl mb-16 max-w-4xl mx-auto opacity-95 leading-relaxed">
                 Your donation directly supports families affected by pediatric IBD and oncology through grants, programs, and research funding.
             </p>
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                    <div class="text-4xl mb-4">$25</div>
-                    <h3 class="text-xl font-bold mb-4">Hope Starter</h3>
-                    <p class="opacity-90 mb-6">Provides educational materials for one family</p>
-                    <button class="bg-white text-ibd-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full">
+            <div class="grid md:grid-cols-3 gap-10 mb-16">
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-10 warm-shadow">
+                    <div class="text-5xl mb-6">$25</div>
+                    <h3 class="text-xl font-bold mb-6">Hope Starter</h3>
+                    <p class="opacity-95 mb-8 leading-relaxed">Provides educational materials for one family</p>
+                    <button class="bg-white text-warm-600 px-8 py-4 rounded-full font-semibold hover:bg-warm-50 transition-colors w-full warm-shadow">
                         Donate $25
                     </button>
                 </div>
-                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white">
-                    <div class="text-4xl mb-4">$100</div>
-                    <h3 class="text-xl font-bold mb-4">Family Supporter</h3>
-                    <p class="opacity-90 mb-6">Funds one month of family support services</p>
-                    <button class="bg-white text-ibd-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full">
+                <div class="bg-white/20 backdrop-blur-sm rounded-3xl p-10 border-2 border-white warm-shadow">
+                    <div class="text-5xl mb-6">$100</div>
+                    <h3 class="text-xl font-bold mb-6">Family Supporter</h3>
+                    <p class="opacity-95 mb-8 leading-relaxed">Funds one month of family support services</p>
+                    <button class="bg-white text-warm-600 px-8 py-4 rounded-full font-semibold hover:bg-warm-50 transition-colors w-full warm-shadow">
                         Donate $100
                     </button>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                    <div class="text-4xl mb-4">$500</div>
-                    <h3 class="text-xl font-bold mb-4">Research Champion</h3>
-                    <p class="opacity-90 mb-6">Contributes to pediatric research initiatives</p>
-                    <button class="bg-white text-ibd-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full">
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-10 warm-shadow">
+                    <div class="text-5xl mb-6">$500</div>
+                    <h3 class="text-xl font-bold mb-6">Research Champion</h3>
+                    <p class="opacity-95 mb-8 leading-relaxed">Contributes to pediatric research initiatives</p>
+                    <button class="bg-white text-warm-600 px-8 py-4 rounded-full font-semibold hover:bg-warm-50 transition-colors w-full warm-shadow">
                         Donate $500
                     </button>
                 </div>
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
-                <h3 class="text-2xl font-bold mb-4">Custom Amount</h3>
-                <p class="opacity-90 mb-6">Every dollar makes a difference in a child's life</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-10 max-w-2xl mx-auto warm-shadow">
+                <h3 class="text-2xl font-bold mb-6">Custom Amount</h3>
+                <p class="opacity-95 mb-8 leading-relaxed">Every dollar makes a difference in a child's life</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="number" placeholder="Enter amount" class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-white">
-                    <button class="bg-white text-ibd-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    <input type="number" placeholder="Enter amount" class="flex-1 px-4 py-4 rounded-xl text-warm-gray-800 focus:ring-2 focus:ring-white bg-white">
+                    <button class="bg-white text-warm-600 px-10 py-4 rounded-xl font-semibold hover:bg-warm-50 transition-colors warm-shadow">
                         Donate Now
                     </button>
                 </div>
@@ -372,65 +378,65 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 gradient-bg">
+    <section id="contact" class="py-24 warm-gradient">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Get in Touch</h2>
-                <p class="text-xl text-gray-600">We're here to help and answer your questions</p>
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-warm-800 mb-8">Get in Touch</h2>
+                <p class="text-xl text-warm-gray-600">We're here to help and answer your questions</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Contact Information</h3>
-                    <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-warm-700 mb-8">Contact Information</h3>
+                    <div class="space-y-8">
                         <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-ibd-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-ibd-600">📍</span>
+                            <div class="w-12 h-12 bg-warm-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-warm-600 text-xl">📍</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-ibd-800">Address</h4>
-                                <p class="text-gray-600">123 Hope Street<br>Raleigh, NC 27601</p>
+                                <h4 class="font-semibold text-warm-800 mb-2">Address</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">123 Hope Street<br>Raleigh, NC 27601</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-healing-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-healing-600">📧</span>
+                            <div class="w-12 h-12 bg-soft-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-soft-blue-600 text-xl">📧</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-healing-800">Email</h4>
-                                <p class="text-gray-600">info@lumosfoundation.org</p>
+                                <h4 class="font-semibold text-soft-blue-800 mb-2">Email</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">info@lumosfoundation.org</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-comfort-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-comfort-600">📞</span>
+                            <div class="w-12 h-12 bg-warm-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-warm-600 text-xl">📞</span>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-comfort-800">Phone</h4>
-                                <p class="text-gray-600">(919) 555-0123</p>
+                                <h4 class="font-semibold text-warm-800 mb-2">Phone</h4>
+                                <p class="text-warm-gray-600 leading-relaxed">(919) 555-0123</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg">
-                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Send us a Message</h3>
-                    <form class="space-y-4">
-                        <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-3xl p-10 shadow-soft warm-shadow">
+                    <h3 class="text-2xl font-bold text-warm-700 mb-8">Send us a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                                <label class="block text-sm font-medium text-warm-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                                <label class="block text-sm font-medium text-warm-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Subject</label>
+                            <select class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent">
                                 <option>Select a subject</option>
                                 <option>General Inquiry</option>
                                 <option>Family Support</option>
@@ -440,10 +446,10 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent" placeholder="How can we help you?"></textarea>
+                            <label class="block text-sm font-medium text-warm-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-warm-200 rounded-xl focus:ring-2 focus:ring-warm-500 focus:border-transparent" placeholder="How can we help you?"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-ibd-600 text-white py-3 rounded-lg font-semibold hover:bg-ibd-700 transition-colors">
+                        <button type="submit" class="w-full bg-warm-500 text-white py-4 rounded-xl font-semibold hover:bg-warm-600 transition-colors warm-shadow">
                             Send Message
                         </button>
                     </form>
@@ -453,27 +459,27 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-warm-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-10">
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="h-8 w-8 bg-gradient-to-br from-ibd-500 to-healing-500 rounded-lg flex items-center justify-center">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="h-10 w-10 bg-gradient-to-br from-warm-500 to-soft-blue-500 rounded-xl flex items-center justify-center warm-shadow">
                             <span class="text-white font-bold">L</span>
                         </div>
                         <span class="text-xl font-display font-bold">Lumos Foundation</span>
                     </div>
-                    <p class="text-gray-400 mb-4">Bringing light and hope to families affected by pediatric IBD and oncology.</p>
+                    <p class="text-warm-gray-400 mb-6 leading-relaxed">Bringing light and hope to families affected by pediatric IBD and oncology.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📺</a>
+                        <a href="#" class="text-warm-gray-400 hover:text-white transition-colors">📘</a>
+                        <a href="#" class="text-warm-gray-400 hover:text-white transition-colors">📷</a>
+                        <a href="#" class="text-warm-gray-400 hover:text-white transition-colors">🐦</a>
+                        <a href="#" class="text-warm-gray-400 hover:text-white transition-colors">📺</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
+                    <h4 class="font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-warm-gray-400">
                         <li><a href="#mission" class="hover:text-white transition-colors">Our Mission</a></li>
                         <li><a href="#events" class="hover:text-white transition-colors">Events</a></li>
                         <li><a href="#blog" class="hover:text-white transition-colors">Blog</a></li>
@@ -481,8 +487,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Support</h4>
-                    <ul class="space-y-2 text-gray-400">
+                    <h4 class="font-semibold mb-6">Support</h4>
+                    <ul class="space-y-3 text-warm-gray-400">
                         <li><a href="#donate" class="hover:text-white transition-colors">Donate</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Family Resources</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Research</a></li>
@@ -490,8 +496,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
+                    <h4 class="font-semibold mb-6">Legal</h4>
+                    <ul class="space-y-3 text-warm-gray-400">
                         <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">501(c)(3) Status</a></li>
@@ -499,7 +505,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <div class="border-t border-warm-gray-800 mt-12 pt-8 text-center text-warm-gray-400">
                 <p>&copy; 2024 Lumos Foundation. All rights reserved. | Part of Medivue NPO, officially registered in North Carolina.</p>
             </div>
         </div>
