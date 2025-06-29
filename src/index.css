@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iOS-specific styles */
+@layer base {
+  /* Prevent iOS text size adjustment on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Improve touch targets on iOS */
+  button, 
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-appearance: button;
+    padding: 0.75rem;
+  }
+
+  /* Fix iOS input styling */
+  input,
+  textarea,
+  select {
+    -webkit-appearance: none;
+    border-radius: 0.5rem;
+    @apply border-gray-300;
+  }
+
+  /* Fix iOS date input */
+  input[type="date"] {
+    display: block;
+    -webkit-appearance: textfield;
+    min-height: 1.2em;
+  }
+
+  /* Prevent zoom on iOS inputs */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Fix iOS button touch color */
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Fix iOS momentum scrolling */
+  .overflow-y-auto,
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+}

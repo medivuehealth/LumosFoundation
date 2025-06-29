@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVue Health - Pediatric IBD Care Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+        }
+        
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .screenshot-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .screenshot-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .screenshot-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .screenshot-placeholder {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .screenshot-content {
+            padding: 25px;
+        }
+        
+        .screenshot-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .screenshot-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .mission {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .mission h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .mission p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .nonprofit-info {
+            background: #667eea;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .nonprofit-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .nonprofit-info p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav a {
+                margin: 0 15px;
+            }
+            
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">MediVue Health</div>
+            <nav class="nav">
+                <a href="#features">Features</a>
+                <a href="#screenshots">Platform</a>
+                <a href="#mission">Mission</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Transforming Pediatric IBD Care</h1>
+            <p>Empowering families with AI-powered flare prediction, comprehensive health monitoring, nutrition analysis, and compassionate community support for pediatric Inflammatory Bowel Disease patients.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Our Comprehensive Platform</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI-Powered Flare Prediction</h3>
+                    <p>Advanced machine learning with 85% accuracy to predict IBD flares before they occur, enabling proactive care and preventing complications.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍎</div>
+                    <h3>Nutrition Analyzer</h3>
+                    <p>Comprehensive meal logging with automatic allergen detection, nutritional analysis, and IBD-specific dietary recommendations for optimal health.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Health Monitoring</h3>
+                    <p>Comprehensive symptom tracking, medication management, and nutrition analysis tailored specifically for pediatric IBD patients.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Community Support</h3>
+                    <p>Connect with other families, share recovery stories, and participate in local events and advocacy programs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📢</div>
+                    <h3>Advocacy & Awareness</h3>
+                    <p>Participate in IBD advocacy programs, voting systems for law changes, and awareness initiatives to improve healthcare policies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Educational Resources</h3>
+                    <p>Access to comprehensive medical journals, research articles, and age-appropriate educational materials.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>HIPAA Compliant</h3>
+                    <p>End-to-end encryption and secure data handling to protect patient privacy and ensure healthcare compliance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Accessible Design</h3>
+                    <p>Responsive design that works seamlessly across all devices with full accessibility support for all users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshot-section" id="screenshots">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: #333;">Platform Screenshots</h2>
+            <div class="screenshot-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        📱 Dashboard Interface
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Main Dashboard</h3>
+                        <p>Comprehensive overview of health metrics, recent activities, and quick access to all platform features.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        🧠 Flare Prediction
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>AI Flare Prediction</h3>
+                        <p>Real-time risk assessment with 85% accuracy, showing probability scores and personalized recommendations.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        🍎 Nutrition Analyzer
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Meal Logging & Analysis</h3>
+                        <p>Food tracking with automatic nutritional breakdown, allergen detection, and IBD-specific recommendations.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        📊 Health Tracking
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Symptom Journal</h3>
+                        <p>Daily symptom monitoring with visual charts, medication tracking, and trend analysis.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        🤝 Community Connect
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Peer Support Forum</h3>
+                        <p>Community platform for sharing experiences, recovery stories, and connecting with other families.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        📢 Advocacy Center
+                    </div>
+                    <div class="screenshot-content">
+                        <h3>Advocacy Programs</h3>
+                        <p>Information about IBD advocacy initiatives, voting systems, and legislative change programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>MediVue Health is dedicated to improving the quality of life for pediatric IBD patients and their families through innovative technology, comprehensive care support, and community building. We believe every child deserves access to advanced healthcare tools and a supportive community that understands their unique challenges.</p>
+        </div>
+    </section>
+
+    <section class="nonprofit-info">
+        <div class="container">
+            <h2>Nonprofit Organization</h2>
+            <p>MediVue Health operates as a nonprofit organization committed to making advanced pediatric IBD care accessible to all families, regardless of their financial circumstances. Our platform is developed with input from healthcare professionals and tested with real patient data to ensure the highest standards of care and safety.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: info@medivuehealth.org</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Address: [Your Organization Address]</p>
+            </div>
+            <div>
+                <p>&copy; 2024 MediVue Health. All rights reserved.</p>
+                <p>A nonprofit organization dedicated to pediatric IBD care.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

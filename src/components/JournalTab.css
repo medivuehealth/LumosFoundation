@@ -1,0 +1,78 @@
+.analysis-results {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.analysis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.analysis-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.analysis-header button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.prediction-summary {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.risk-level {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.risk-level.high {
+    background-color: #ffe6e6;
+    color: #cc0000;
+}
+
+.risk-level.low {
+    background-color: #e6ffe6;
+    color: #006600;
+}
+
+.confidence {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.recommendations {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.recommendations h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.recommendations ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.recommendations li {
+    margin-bottom: 8px;
+    color: #444;
+    line-height: 1.4;
+} 
