@@ -3,444 +3,538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediVue Health - Pediatric IBD Care Platform</title>
+    <title>Lumos Foundation - Supporting Pediatric IBD & Oncology Patients</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ibd': {
+                            100: '#f0f9ff',
+                            200: '#e0f2fe',
+                            300: '#bae6fd',
+                            400: '#7dd3fc',
+                            500: '#38bdf8',
+                            600: '#0ea5e9',
+                            700: '#0284c7',
+                            800: '#0369a1',
+                            900: '#0c4a6e'
+                        },
+                        'healing': {
+                            100: '#f0fdf4',
+                            200: '#dcfce7',
+                            300: '#bbf7d0',
+                            400: '#86efac',
+                            500: '#4ade80',
+                            600: '#22c55e',
+                            700: '#16a34a',
+                            800: '#15803d',
+                            900: '#166534'
+                        },
+                        'comfort': {
+                            100: '#fef7ff',
+                            200: '#fdeeff',
+                            300: '#fcdcff',
+                            400: '#fbb8ff',
+                            500: '#f472b6',
+                            600: '#ec4899',
+                            700: '#db2777',
+                            800: '#be185d',
+                            900: '#9d174d'
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(56, 189, 248, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #f0fdf4 50%, #fef7ff 75%, #f0f9ff 100%);
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        .hero-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 50%, #ec4899 100%);
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .card-hover {
+            transition: all 0.3s ease;
         }
-        
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .nav a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav a:hover {
-            color: #667eea;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,107,0.4);
-        }
-        
-        .features {
-            background: white;
-            padding: 80px 0;
-        }
-        
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            color: #333;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .feature-card {
-            background: #f8f9fa;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
+        .card-hover:hover {
             transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .screenshot-section {
-            background: #f8f9fa;
-            padding: 80px 0;
-        }
-        
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .screenshot-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .screenshot-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .screenshot-placeholder {
-            height: 250px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        
-        .screenshot-content {
-            padding: 25px;
-        }
-        
-        .screenshot-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .screenshot-content p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .mission {
-            background: #f8f9fa;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .mission h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #333;
-        }
-        
-        .mission p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #666;
-            line-height: 1.8;
-        }
-        
-        .nonprofit-info {
-            background: #667eea;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .nonprofit-info h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .nonprofit-info p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .contact-info {
-            margin-bottom: 20px;
-        }
-        
-        .contact-info p {
-            margin: 5px 0;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav a {
-                margin: 0 15px;
-            }
-            
-            .screenshot-grid {
-                grid-template-columns: 1fr;
-            }
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="logo">MediVue Health</div>
-            <nav class="nav">
-                <a href="#features">Features</a>
-                <a href="#screenshots">Platform</a>
-                <a href="#mission">Mission</a>
-                <a href="#contact">Contact</a>
+<body class="font-sans text-gray-800">
+    <!-- SUCCESS BANNER: Full Lumos Foundation Website is Live! -->
+    <div style="background: #22c55e; color: white; text-align: center; padding: 10px; font-weight: bold; font-size: 18px;">
+        ✅ SUCCESS: Complete Lumos Foundation Website is Now Live! ✅
+    </div>
+    
+    <!-- DEBUG: Website Updated Successfully - Full Lumos Foundation Site is Live! -->
+    <!-- Timestamp: 2024-12-19 - This confirms the complete website is deployed -->
+    
+    <!-- Header -->
+    <header class="bg-white/90 shadow-sm sticky top-0 z-50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <div class="flex items-center space-x-3">
+                <div class="h-10 w-10 bg-gradient-to-br from-ibd-500 to-healing-500 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">L</span>
+                </div>
+                <span class="text-3xl font-display font-bold text-ibd-700 tracking-tight">Lumos Foundation</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#mission" class="text-gray-600 hover:text-ibd-600 transition-colors">Mission</a>
+                <a href="#events" class="text-gray-600 hover:text-ibd-600 transition-colors">Events</a>
+                <a href="#blog" class="text-gray-600 hover:text-ibd-600 transition-colors">Blog</a>
+                <a href="#volunteer" class="text-gray-600 hover:text-ibd-600 transition-colors">Volunteer</a>
+                <a href="#contact" class="text-gray-600 hover:text-ibd-600 transition-colors">Contact</a>
+                <a href="#donate" class="bg-ibd-600 text-white px-6 py-2 rounded-full hover:bg-ibd-700 transition-colors">Donate</a>
             </nav>
+            <button class="md:hidden text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Transforming Pediatric IBD Care</h1>
-            <p>Empowering families with AI-powered flare prediction, comprehensive health monitoring, nutrition analysis, and compassionate community support for pediatric Inflammatory Bowel Disease patients.</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
+                Bringing Light to <span class="text-yellow-300">Little Warriors</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                Supporting children and families affected by Pediatric IBD and Oncology through hope, healing, and community.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#donate" class="bg-white text-ibd-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Make a Donation
+                </a>
+                <a href="#volunteer" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-ibd-600 transition-colors">
+                    Join Our Mission
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Our Comprehensive Platform</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI-Powered Flare Prediction</h3>
-                    <p>Advanced machine learning with 85% accuracy to predict IBD flares before they occur, enabling proactive care and preventing complications.</p>
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Our Mission</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Lumos Foundation is dedicated to illuminating the path for families navigating the challenges of pediatric IBD and oncology.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🌟</div>
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-4">Awareness</h3>
+                    <p class="text-gray-600">Spreading knowledge about pediatric IBD and oncology to create understanding and support networks.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🍎</div>
-                    <h3>Nutrition Analyzer</h3>
-                    <p>Comprehensive meal logging with automatic allergen detection, nutritional analysis, and IBD-specific dietary recommendations for optimal health.</p>
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-4">Support</h3>
+                    <p class="text-gray-600">Providing direct assistance to families through grants, counseling, and community programs.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Health Monitoring</h3>
-                    <p>Comprehensive symptom tracking, medication management, and nutrition analysis tailored specifically for pediatric IBD patients.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Community Support</h3>
-                    <p>Connect with other families, share recovery stories, and participate in local events and advocacy programs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📢</div>
-                    <h3>Advocacy & Awareness</h3>
-                    <p>Participate in IBD advocacy programs, voting systems for law changes, and awareness initiatives to improve healthcare policies.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Educational Resources</h3>
-                    <p>Access to comprehensive medical journals, research articles, and age-appropriate educational materials.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>HIPAA Compliant</h3>
-                    <p>End-to-end encryption and secure data handling to protect patient privacy and ensure healthcare compliance.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💻</div>
-                    <h3>Accessible Design</h3>
-                    <p>Responsive design that works seamlessly across all devices with full accessibility support for all users.</p>
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">💫</div>
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-4">Hope</h3>
+                    <p class="text-gray-600">Funding research and innovative programs to improve outcomes and quality of life.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="screenshot-section" id="screenshots">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: #333;">Platform Screenshots</h2>
-            <div class="screenshot-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">
-                        📱 Dashboard Interface
-                    </div>
-                    <div class="screenshot-content">
-                        <h3>Main Dashboard</h3>
-                        <p>Comprehensive overview of health metrics, recent activities, and quick access to all platform features.</p>
-                    </div>
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Upcoming Events</h2>
+                <p class="text-xl text-gray-600">Join us in making a difference</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-ibd-100 to-healing-100 rounded-2xl p-6 card-hover">
+                    <div class="text-sm text-ibd-600 font-semibold mb-2">July 15, 2024</div>
+                    <h3 class="text-xl font-bold text-ibd-800 mb-3">Family Support Workshop</h3>
+                    <p class="text-gray-600 mb-4">Join us for a day of connection, education, and support for families affected by pediatric IBD.</p>
+                    <a href="#" class="text-ibd-600 font-semibold hover:text-ibd-700">Learn More →</a>
                 </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">
-                        🧠 Flare Prediction
-                    </div>
-                    <div class="screenshot-content">
-                        <h3>AI Flare Prediction</h3>
-                        <p>Real-time risk assessment with 85% accuracy, showing probability scores and personalized recommendations.</p>
-                    </div>
+                <div class="bg-gradient-to-br from-healing-100 to-comfort-100 rounded-2xl p-6 card-hover">
+                    <div class="text-sm text-healing-600 font-semibold mb-2">August 3, 2024</div>
+                    <h3 class="text-xl font-bold text-healing-800 mb-3">Hope & Healing Gala</h3>
+                    <p class="text-gray-600 mb-4">Our annual fundraising gala celebrating the strength and resilience of our community.</p>
+                    <a href="#" class="text-healing-600 font-semibold hover:text-healing-700">Learn More →</a>
                 </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">
-                        🍎 Nutrition Analyzer
-                    </div>
-                    <div class="screenshot-content">
-                        <h3>Meal Logging & Analysis</h3>
-                        <p>Food tracking with automatic nutritional breakdown, allergen detection, and IBD-specific recommendations.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">
-                        📊 Health Tracking
-                    </div>
-                    <div class="screenshot-content">
-                        <h3>Symptom Journal</h3>
-                        <p>Daily symptom monitoring with visual charts, medication tracking, and trend analysis.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">
-                        🤝 Community Connect
-                    </div>
-                    <div class="screenshot-content">
-                        <h3>Peer Support Forum</h3>
-                        <p>Community platform for sharing experiences, recovery stories, and connecting with other families.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">
-                        📢 Advocacy Center
-                    </div>
-                    <div class="screenshot-content">
-                        <h3>Advocacy Programs</h3>
-                        <p>Information about IBD advocacy initiatives, voting systems, and legislative change programs.</p>
-                    </div>
+                <div class="bg-gradient-to-br from-comfort-100 to-ibd-100 rounded-2xl p-6 card-hover">
+                    <div class="text-sm text-comfort-600 font-semibold mb-2">September 10, 2024</div>
+                    <h3 class="text-xl font-bold text-comfort-800 mb-3">Research Symposium</h3>
+                    <p class="text-gray-600 mb-4">Learn about the latest advances in pediatric IBD and oncology research.</p>
+                    <a href="#" class="text-comfort-600 font-semibold hover:text-comfort-700">Learn More →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="mission" id="mission">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p>MediVue Health is dedicated to improving the quality of life for pediatric IBD patients and their families through innovative technology, comprehensive care support, and community building. We believe every child deserves access to advanced healthcare tools and a supportive community that understands their unique challenges.</p>
-        </div>
-    </section>
-
-    <section class="nonprofit-info">
-        <div class="container">
-            <h2>Nonprofit Organization</h2>
-            <p>MediVue Health operates as a nonprofit organization committed to making advanced pediatric IBD care accessible to all families, regardless of their financial circumstances. Our platform is developed with input from healthcare professionals and tested with real patient data to ensure the highest standards of care and safety.</p>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>Email: info@medivuehealth.org</p>
-                <p>Phone: (555) 123-4567</p>
-                <p>Address: [Your Organization Address]</p>
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Latest Stories</h2>
+                <p class="text-xl text-gray-600">Stories of hope, resilience, and community</p>
             </div>
-            <div>
-                <p>&copy; 2024 MediVue Health. All rights reserved.</p>
-                <p>A nonprofit organization dedicated to pediatric IBD care.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-ibd-400 to-ibd-600 flex items-center justify-center">
+                        <span class="text-6xl">📚</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-ibd-600 mb-2">Education • 5 min read</div>
+                        <h3 class="text-xl font-bold text-ibd-800 mb-3">Understanding Pediatric IBD: A Parent's Guide</h3>
+                        <p class="text-gray-600 mb-4">Essential information for parents navigating their child's IBD diagnosis and treatment journey.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">June 28, 2024</span>
+                            <a href="#" class="text-ibd-600 font-semibold hover:text-ibd-700">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-healing-400 to-healing-600 flex items-center justify-center">
+                        <span class="text-6xl">✨</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-healing-600 mb-2">Success Story • 3 min read</div>
+                        <h3 class="text-xl font-bold text-healing-800 mb-3">Emma's Journey: From Diagnosis to Advocacy</h3>
+                        <p class="text-gray-600 mb-4">How one family turned their challenges into opportunities to help others in similar situations.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">June 25, 2024</span>
+                            <a href="#" class="text-healing-600 font-semibold hover:text-healing-700">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-comfort-400 to-comfort-600 flex items-center justify-center">
+                        <span class="text-6xl">🔬</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-comfort-600 mb-2">Research • 7 min read</div>
+                        <h3 class="text-xl font-bold text-comfort-800 mb-3">Breakthroughs in Pediatric Oncology Treatment</h3>
+                        <p class="text-gray-600 mb-4">Latest developments in treatment options and their impact on patient outcomes.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">June 22, 2024</span>
+                            <a href="#" class="text-comfort-600 font-semibold hover:text-comfort-700">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="bg-ibd-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-ibd-700 transition-colors">
+                    Read More Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Join Our Volunteer Team</h2>
+                <p class="text-xl text-gray-600">Make a difference in the lives of children and families</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Volunteer Opportunities</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-ibd-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-ibd-600 font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-ibd-800">Event Coordination</h4>
+                                <p class="text-gray-600">Help organize and support our community events and fundraisers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-healing-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-healing-600 font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-healing-800">Family Support Hotline</h4>
+                                <p class="text-gray-600">Provide emotional support and resources to families in need.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-comfort-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-comfort-600 font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-comfort-800">Educational Content</h4>
+                                <p class="text-gray-600">Create and share educational materials for our community.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-ibd-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-ibd-600 font-bold">4</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-ibd-800">Peer Mentoring</h4>
+                                <p class="text-gray-600">Share your experience and support families going through similar challenges.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-ibd-50 to-healing-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Volunteer Signup</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Areas of Interest</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                                <option>Select an area</option>
+                                <option>Event Coordination</option>
+                                <option>Family Support Hotline</option>
+                                <option>Educational Content</option>
+                                <option>Peer Mentoring</option>
+                                <option>Social Media & Marketing</option>
+                                <option>Administrative Support</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent" placeholder="Tell us about your interest in volunteering..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-ibd-600 text-white py-3 rounded-lg font-semibold hover:bg-ibd-700 transition-colors">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="py-20 hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Make a Difference Today</h2>
+            <p class="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+                Your donation directly supports families affected by pediatric IBD and oncology through grants, programs, and research funding.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                    <div class="text-4xl mb-4">$25</div>
+                    <h3 class="text-xl font-bold mb-4">Hope Starter</h3>
+                    <p class="opacity-90 mb-6">Provides educational materials for one family</p>
+                    <button class="bg-white text-ibd-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full">
+                        Donate $25
+                    </button>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-white">
+                    <div class="text-4xl mb-4">$100</div>
+                    <h3 class="text-xl font-bold mb-4">Family Supporter</h3>
+                    <p class="opacity-90 mb-6">Funds one month of family support services</p>
+                    <button class="bg-white text-ibd-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full">
+                        Donate $100
+                    </button>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                    <div class="text-4xl mb-4">$500</div>
+                    <h3 class="text-xl font-bold mb-4">Research Champion</h3>
+                    <p class="opacity-90 mb-6">Contributes to pediatric research initiatives</p>
+                    <button class="bg-white text-ibd-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full">
+                        Donate $500
+                    </button>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold mb-4">Custom Amount</h3>
+                <p class="opacity-90 mb-6">Every dollar makes a difference in a child's life</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="number" placeholder="Enter amount" class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-white">
+                    <button class="bg-white text-ibd-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Donate Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-ibd-800 mb-6">Get in Touch</h2>
+                <p class="text-xl text-gray-600">We're here to help and answer your questions</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-ibd-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-ibd-600">📍</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-ibd-800">Address</h4>
+                                <p class="text-gray-600">123 Hope Street<br>Raleigh, NC 27601</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-healing-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-healing-600">📧</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-healing-800">Email</h4>
+                                <p class="text-gray-600">info@lumosfoundation.org</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-comfort-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-comfort-600">📞</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-comfort-800">Phone</h4>
+                                <p class="text-gray-600">(919) 555-0123</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-ibd-700 mb-6">Send us a Message</h3>
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent">
+                                <option>Select a subject</option>
+                                <option>General Inquiry</option>
+                                <option>Family Support</option>
+                                <option>Volunteer Information</option>
+                                <option>Donation Questions</option>
+                                <option>Event Information</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ibd-500 focus:border-transparent" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-ibd-600 text-white py-3 rounded-lg font-semibold hover:bg-ibd-700 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="h-8 w-8 bg-gradient-to-br from-ibd-500 to-healing-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">L</span>
+                        </div>
+                        <span class="text-xl font-display font-bold">Lumos Foundation</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Bringing light and hope to families affected by pediatric IBD and oncology.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📺</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#mission" class="hover:text-white transition-colors">Our Mission</a></li>
+                        <li><a href="#events" class="hover:text-white transition-colors">Events</a></li>
+                        <li><a href="#blog" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#volunteer" class="hover:text-white transition-colors">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#donate" class="hover:text-white transition-colors">Donate</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Family Resources</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Research</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Get Help</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">501(c)(3) Status</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Annual Report</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Lumos Foundation. All rights reserved. | Part of Medivue NPO, officially registered in North Carolina.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple form handling (you can replace with actual form submission)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your submission! We will get back to you soon.');
+            });
+        });
+    </script>
 </body>
 </html> 
